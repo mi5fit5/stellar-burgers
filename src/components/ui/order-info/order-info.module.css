@@ -1,5 +1,4 @@
 .wrap {
-  padding-block-start: 120px;
   margin: 0 auto;
   width: 640px;
 }
@@ -74,4 +73,8 @@
 }
 .total {
   margin-left: auto;
+}
+
+.textAlignCenter {
+  text-align: center;
 }

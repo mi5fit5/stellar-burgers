@@ -5,6 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { getOrderByNumberApi, getOrdersApi, orderBurgerApi } from '@api';
 import { TOrder } from '@utils-types';
+import { resetConstructor } from './constructorSlice';
 
 // Типизация состояния
 type TOrderState = {
@@ -41,7 +42,13 @@ export const fetchOrders = createAsyncThunk(
 // Создание нового заказа
 export const createOrder = createAsyncThunk(
   'orders/create',
-  async (order: string[]) => await orderBurgerApi(order)
+  async (order: string[], { dispatch }) => {
+    const responce = await orderBurgerApi(order);
+
+    dispatch(resetConstructor());
+
+    return responce;
+  }
 );
 
 // Создание слайса

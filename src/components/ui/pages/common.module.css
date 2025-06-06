@@ -46,3 +46,7 @@
   color: #ff0000;
   text-align: center;
 }
+
+.paddingBlockStart {
+  padding-block-start: 120px;
+}

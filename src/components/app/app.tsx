@@ -2,7 +2,13 @@ import { useEffect } from 'react';
 import '../../index.css';
 import styles from './app.module.css';
 
-import { AppHeader, Modal, OrderInfo, IngredientDetails } from '@components';
+import {
+  AppHeader,
+  Modal,
+  OrderInfo,
+  IngredientDetails,
+  OrderInfoWrapper
+} from '@components';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import {
   ConstructorPage,
@@ -110,7 +116,7 @@ const App = () => {
               path='/ingredients/:id'
               element={
                 <Modal title='Детали ингредиента' onClose={handleModalClose}>
-                  <IngredientDetails />
+                  <IngredientDetails isModal />
                 </Modal>
               }
             />
@@ -120,11 +126,7 @@ const App = () => {
           <Routes>
             <Route
               path='/feed/:number'
-              element={
-                <Modal title='Детали заказа' onClose={handleModalClose}>
-                  <OrderInfo />
-                </Modal>
-              }
+              element={<OrderInfoWrapper onClose={handleModalClose} />}
             />
           </Routes>
         )}
@@ -132,11 +134,7 @@ const App = () => {
           <Routes>
             <Route
               path='profile/orders/:number'
-              element={
-                <Modal title='Детали заказа' onClose={handleModalClose}>
-                  <OrderInfo />
-                </Modal>
-              }
+              element={<OrderInfoWrapper onClose={handleModalClose} />}
             />
           </Routes>
         )}
